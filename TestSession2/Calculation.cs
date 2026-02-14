@@ -15,35 +15,35 @@ namespace TestSession2
         /// Главный метод для расчета заработной платы содержит базовые проверки и поиск ЗП сотрудника
         /// </summary>
         /// <param name="post">Должность сотрудника</param>
-        /// <param name="rank">Ставка сотрудника. должна быть выше 0</param>
+        /// <param name="bet">Ставка сотрудника. должна быть выше 0</param>
         /// <returns></returns>
-        public decimal SalaryCalculation(string post, decimal rank)
+        public double SalaryCalculation(string post, double bet)
         {
             // проверка ставки
-            if (rank <= 0)
+            if (bet <= 0)
             {
-                return -1m;
+                return -1;
             }
 
             // проверка должности
             if (String.IsNullOrEmpty(post))
             {
-                return -1m;
+                return -1;
             }
 
             // преобразование строки должности к единому виду
             string normalizedPost = post.ToLower().Trim();
 
-            decimal baseSalary;
+            double baseSalary;
 
             // нахождение базовой ЗП исходя из должности
             if (normalizedPost == "директор")
             {
-                baseSalary = 30000m;
+                baseSalary = 30000;
             }
             else if (normalizedPost == "мастер")
             {
-                baseSalary = 20000m;
+                baseSalary = 20000;
             }
             else if (normalizedPost == "водитель")
             {
@@ -51,11 +51,11 @@ namespace TestSession2
             }
             else 
             {
-                return -1m; 
+                return -1; 
             }
 
             // калькуляция итоговой зп
-            decimal salary = baseSalary * rank * 0.87m;
+            double salary = baseSalary * bet * 0.87;
 
             // возврат зп
             return salary;
