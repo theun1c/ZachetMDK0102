@@ -1,0 +1,4 @@
+# base gitignore for csharp project
+.vs/
+bin/
+obj/
